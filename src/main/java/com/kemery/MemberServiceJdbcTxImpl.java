@@ -23,6 +23,7 @@ public class MemberServiceJdbcTxImpl implements MemberService {
 		try { 
 			connection = dataSource.getConnection();
 			connection.setAutoCommit(false);
+			statement = connection.createStatement();
 			statement.executeUpdate("UPDATE tblmembers SET ExpDt = '2018-01-01' WHERE memid = '" + memid + "'");
 			
 			if(success.equalsIgnoreCase("Y")) {
